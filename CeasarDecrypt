@@ -1,0 +1,27 @@
+using System;
+
+namespace ConCesar
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Welcher Text soll verschlüsselt werden? ");
+            string eingabe = Console.ReadLine();
+            Console.WriteLine("Gib einen Schüssel ein: ");
+            int schluessel = Convert.ToInt32(Console.ReadLine());
+
+
+            char[] nachricht = eingabe.ToCharArray();
+            for (schluessel = -127; schluessel < 128; schluessel++) {
+                Console.WriteLine("Schluessel = " +schluessel);
+                for (int z = 0; z < eingabe.Length; z++)
+                {
+                    Console.Write((char)(((int)nachricht[z]) + schluessel));
+                }
+                Console.WriteLine();
+            }
+            Console.ReadKey();
+        }
+    }
+}
